@@ -1,0 +1,39 @@
+1. Rejestry ogólnego przeznaczenia (64-bit):
+Rejestr |   Główne zastosowanie         |   Niższe 32 bity
+RAX     |   Wynik operacji, funkcji     |   EAX
+RBX     |   Dane (baza)                 |   EBX
+RCX     |   Licznik pętli               |   ECX
+RDX     |   Dane/rozszerzenie RAX       |   EDX
+RSI     |   Wskaźnik źródłowy           |   ESI
+RDI     |   Wskaźnik docelowy           |   EDI
+RBP     |   Wskaźnik bazy stosu         |   EBP
+RSP     |   Wskaźnik wierzchołka stosu  |   ESP
+
+2. Instrukcje Porównania i Skoków
+Instrukcja  |   Składnia        |   Działanie
+---------------------------------------------
+cmp         |   cmp op1, op2    |   Porównuje op1 i op2 (op1 - op2), ustawia flagi bez zapisywania wyniku
+jge         |   jge label       |   Skacz do label jeśli >= (dla liczb ze znakiem; SF == OF)
+jg          |   jg label        |   Skacz do label jeśli > (dla liczb ze znakiem; ZF=0 i SF=OF)
+jl          |   jl label        |   Skacz do label jeśli < (dla liczb ze znakiem; SF != OF)
+jle         |   jle label        |   Skacz do label jeśli <= (dla liczb ze znakiem; ZF=1 lub SF != OF)
+je          |   je label        |   Skacz do label jeśli równe (ZF=1)
+jne         |   jne label        |   Skacz do label jeśli nie równe (ZF=0)
+jmp         |   jmp label        |   Skocz bezwarunkowy
+
+3. Instrukcje Operacji na Danych
+Instrukcja  |   Składnia        |   Działanie
+---------------------------------------------
+mov         |   mov dest, src    |   Kopiuje wartość ze src do dest
+add         |   add dest, src    |   Dodaje src do dest (dest = dest + src)
+sub         |   sub dest, src    |   Odejmuje src od dest (dest = dest - src)
+inc         |   inc op            |   Zwiększa op o 1
+dec         |   dec op            |   Zmniejsza op o 1
+xor         |   xor dest, src    |   Bitowy XOR (często używane do zerowania: xor rax, rax)
+
+4. Instrukcje Kontroli Przepływu
+Instrukcja  |   Składnia    |   Działanie
+call        |   call func   |   Wywołuje funkcję
+ret         |   ret         |   Powrót z funkcji (wartość zwracana w RAX)
+push        |   push op     |   Umieszcza wartość na stosie
+pop         |   pop dest    |   Zdejmuje wartość ze stosu
