@@ -1,0 +1,2 @@
+make -f Makefile_func
+./main_func
